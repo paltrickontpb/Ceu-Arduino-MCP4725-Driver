@@ -1,0 +1,14 @@
+#include "i2c.ceu"
+#include "MCP4725.ceu"
+
+await Dac(on);
+
+var int i = 0;
+loop do
+    loop i in [0->4095] do
+        Dacsetvoltage(i, false);
+    end
+    loop i in [0<-4095] do
+        Dacsetvoltage(i, false);
+    end
+end
