@@ -1,5 +1,5 @@
-#ifndef MCP4725_h
-#define MCP4725_h
+#ifndef mcp4725_h
+#define mcp4725_h
 
 #define MCP4725_ADDRESS                 (0x00)
 

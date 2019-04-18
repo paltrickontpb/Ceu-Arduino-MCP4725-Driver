@@ -1,14 +1,16 @@
 #include "i2c.ceu"
-#include "MCP4725.ceu"
+#include "mcp4725.ceu"
 
 await Dac(on);
 
 var int i = 0;
 loop do
     loop i in [0->4095] do
-        Dacsetvoltage(i, false);
+        spawn Dacsetvoltage(i, false);
+	await 1ms;
     end
     loop i in [0<-4095] do
-        Dacsetvoltage(i, false);
+        spawn Dacsetvoltage(i, false);
+	await 1ms;
     end
 end
