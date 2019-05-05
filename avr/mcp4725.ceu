@@ -16,8 +16,8 @@ end
 
 code/await Dacsetvoltage (var u16 dataInput, var bool writeEEProm) -> none
 do
-    var u8 d1 = dataInput/16;
-    var u8 d2 = dataInput%16;
+    var u8 d1 = (dataInput/16) as u8;
+    var u8 d2 = (dataInput%16) as u8;
     if writeEEProm then
         outer.tx_buf = [{MCP4725_CMD_WRITEDACEEPROM}, d1, (d2<<4)];
         emit I2C_MASTER_SEND({MCP4725_ADDRESS});
